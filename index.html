@@ -1,45 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="valentine-confession.css">
-        <title>For My boo</title>
-    </head>
-    <body>
-        <p class="instruction">Please Click here.
-        </p>
-        <div class="container">
-            <label>
-            <div class="heart">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg"></img>
-            </div>
-            <input id="messageState" type="checkbox" style="display:none"/>
-            </label>
-            <div class="message">
-                <h1 style="font-family: Cinzel, serif; font-size: 40px; letter-spacing: 1.2px;">For My Boo,</h1>
-                <p> 
-                    <span>
-                        &emsp;Miss Youuu.
-                    </span>
-                    <br> <br>
-                    <span>
-                    </span>      
-                </p>
-                <br>
-                <div class="sincere">
-                    <p style="font-weight: bold;"></p>
-                    <p></p>
-                 </div>
-            </div>
-        </div>
-        
-        <script src="jquery.js"></script>
-        <script src="jquery2.1.js"></script>
-        <script defer src="valentine-confession.js"></script>
-    </body>
-</html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>เธอเป็นคนคุยเค้าไหม?</title>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #ffe6e6;
+      margin: 0;
+    }
 
+    h1 {
+      color: #cc0066;
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      position: relative;
+      display: flex;
+      gap: 20px;
+      height: 50px; /* สูงเท่ากับปุ่ม */
+    }
+
+    button {
+      width: 120px;
+      height: 50px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yesBtn {
+      background-color: #66cc66;
+      color: white;
+      position: relative;
+    }
+
+    #noBtn {
+      background-color: #ff6666;
+      color: white;
+      position: absolute;
+      left: 140px; /* เริ่มต้นอยู่ข้างขวา */
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>เธอเป็นคนคุยเค้าไหม? 💖</h1>
+  <div class="buttons">
+    <button id="yesBtn">ตกลง</button>
+    <button id="noBtn">ไม่ตกลง</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+
+    // เมื่อเมาส์เข้าใกล้ "ไม่ตกลง" ให้ปุ่มหนีไปที่อื่นแบบสุ่ม
+    noBtn.addEventListener('mouseover', () => {
+      const maxX = window.innerWidth - noBtn.offsetWidth;
+      const maxY = window.innerHeight - noBtn.offsetHeight;
+      const i = Math.floor(Math.random() * maxX);
+      const j = Math.floor(Math.random() * maxY);
+      noBtn.style.left = `${i}px`;
+      noBtn.style.top = `${j}px`;
+    });
+
+    // เมื่อคลิก "ตกลง"
+    yesBtn.addEventListener('click', () => {
+      alert("You Say Yes ละน้าาา💘");
+    });
+  </script>
+</body>
+</html>
